@@ -9,41 +9,73 @@
   </style>
 </head>
 <body>
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; right:300px; left:0; }
+  #alert {
+      position:absolute; top: 0; right: 0;
+      bottom: 100; width: 260px; background:#e8e8e8;
+      padding:20px;
+  }
+  h1 { margin-top:0; }
+</style>
+
+
+
+
 <div id='map'></div>
+<div id='alert'><h1></h1></div>
+
 <script>
   // Create map
-  mapbox.auto('map', 'examples.map-zr0njcqy', function(map, tiledata) {
+  mapbox.auto('map', 'mapbox.world-light', function(map, tiledata) {
 
     //Add GeoJSON markers
-	var markers = mapbox.markers.layer().url('events.geojson');
-	mapbox.markers.interaction(markers);
-	map.addLayer(markers);
-    
 
-	// Replace marker factory function with our version
-    tiledata.markers.factory(function(m) {
 
-        // Create a marker using the simplestyle factory
-        var elem = mapbox.markers.simplestyle_factory(m);
+	var markerLayer = mapbox.markers.layer().url('events.geojson');
+	var interaction = mapbox.markers.interaction(markerLayer);
+	map.addLayer(markerLayer);
+ 
+ 	//description on the side
+	var alert = document.getElementById('alert');
 
-        // Add function that centers marker on click
-        MM.addEvent(elem, 'click', function(e) {
-            map.ease.location({
-              lat: m.geometry.coordinates[1],
-              lon: m.geometry.coordinates[0]
-            }).zoom(map.zoom()).optimal();
-        });
-
-		// Add a second callback
-		MM.addEvent(elem, 'click', function(e) {
-		 /// your code here
+	// Set a custom formatter for tooltips
+	// Provide a function that returns html to be used in tooltip
+	interaction.formatter(function(feature) {
+	        var o = feature.properties.title+' (' +feature.properties.description+')';
+			return o;
+	});
+	
+	markerLayer.factory(function(f) {
+	      var elem = mapbox.markers.simplestyle_factory(f);		
+		  MM.addEvent(elem, 'click', function(e) {
+		          // clear the alert box
+		          alert.innerHTML = '';
+		          // add a header and paragraph, and fill them with content
+		          // from the feature, which we've stored as the variable 'f'
+		          var h1 = alert.appendChild(document.createElement('h1'));
+		          var p = alert.appendChild(document.createElement('p'));
+		          h1.innerHTML = "<a href='"+f.properties.website+"' target='_blank'>"+"Sartup Weekend "+f.properties.title+"</a>";
+		          p.innerHTML = f.properties.description ;
+		          // prevent this event from bubbling down to the map and clearing
+		          // the content
+		          e.stopPropagation();
+		   });
+		   return elem;
 		});
-		
 		//Cycle through markers? http://mapbox.com/mapbox.js/example/cycle-markers/
 
-        return elem;
-    });
-  });
+ 	// Attribute map
+  	map.ui.attribution.add()
+      .content('<a href="http://mapbox.com/about/maps">Terms &amp; Feedback</a>');
+  
+	map.centerzoom({
+        lat: 27.60,
+        lon: -20.07
+    }, 2);
+});
+
 </script>
 </body>
 </html>
