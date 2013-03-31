@@ -64,6 +64,9 @@
 		          var p = alert.appendChild(document.createElement('p'));
 		          h1.innerHTML = "<a href='"+f.properties.website+"' target='_blank'>"+"Sartup Weekend "+f.properties.title+"</a>";
 		          p.innerHTML = f.properties.description ;
+		
+				  // GA
+				 _gaq.push(['_trackEvent', 'tooltip', 'click', f.properties.title]);
 		          // prevent this event from bubbling down to the map and clearing
 		          // the content
 
@@ -94,6 +97,7 @@
 	  xlat= position.coords.latitude;
 	  xlon= position.coords.longitude;
 	  xz=6;
+	  _gaq.push(['_trackEvent', 'geotag', 'Zooming', (xlat,xlon)]);
 	  map.centerzoom({
         lat: xlat,
         lon: xlon
