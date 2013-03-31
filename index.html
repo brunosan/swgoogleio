@@ -15,10 +15,10 @@
   mapbox.auto('map', 'examples.map-zr0njcqy', function(map, tiledata) {
 
     //Add GeoJSON markers
-	var markers = mapbox.markers.layer().url('example.geojson');
+	var markers = mapbox.markers.layer().url('events.geojson');
 	mapbox.markers.interaction(markers);
 	map.addLayer(markers);
-
+    
 
 	// Replace marker factory function with our version
     tiledata.markers.factory(function(m) {
