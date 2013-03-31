@@ -44,6 +44,13 @@
 	// Provide a function that returns html to be used in tooltip
 	interaction.formatter(function(feature) {
 	        var o = feature.properties.title+' (' +feature.properties.description+')';
+	
+			  //Push GA values
+			  var dimensionValue = feature.properties.title;
+			  ga('send', 'pageview', {
+			  'dimension1': dimensionValue
+			  });
+			
 			return o;
 	});
 	
@@ -60,6 +67,7 @@
 		          p.innerHTML = f.properties.description ;
 		          // prevent this event from bubbling down to the map and clearing
 		          // the content
+
 		          e.stopPropagation();
 		   });
 		   return elem;
