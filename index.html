@@ -77,10 +77,28 @@
   	map.ui.attribution.add()
       .content('<a href="http://mapbox.com/about/maps">Terms &amp; Feedback</a>');
   
+	
+	//location
 	map.centerzoom({
-        lat: 27.60,
+        lat: 27.6,
         lon: -20.07
     }, 2);
+
+	var xlat,xlon,xz;
+	if (navigator.geolocation)
+	    {
+	    navigator.geolocation.getCurrentPosition(showPosition);
+	    };
+	function showPosition(position)
+	  {
+	  xlat= position.coords.latitude;
+	  xlon= position.coords.longitude;
+	  xz=6;
+	  map.centerzoom({
+        lat: xlat,
+        lon: xlon
+      }, xz,true); 
+	  }
 });
 
 </script>
