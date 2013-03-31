@@ -48,7 +48,7 @@
 			  //Push GA values
 			  var dimensionValue = feature.properties.title;
 			  
-			  _gaq.push(['_trackEvent', 'tooltip', 'Show', dimensionValue]);
+			  _gaq.push(['_trackEvent', 'tooltip', 'show', dimensionValue]);
 			
 			return o;
 	});
@@ -97,7 +97,7 @@
 	  xlat= position.coords.latitude;
 	  xlon= position.coords.longitude;
 	  xz=6;
-	  _gaq.push(['_trackEvent', 'geotag', 'Zooming', (xlat,xlon)]);
+	  _gaq.push(['_trackEvent', 'geotag', 'Zooming', xlat+","+xlon)]);
 	  map.centerzoom({
         lat: xlat,
         lon: xlon
