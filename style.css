@@ -1,0 +1,18 @@
+body { margin:0; padding:0; }
+ #map { 
+	position:absolute; 
+	top:45px; 
+	bottom:0; 
+	right:300px; 
+	left:0; 
+}
+
+#alert {
+     position:absolute; 
+	 right: 0;
+     bottom: 0;  
+	 background:#e8e8e8;
+     padding:20px;
+	 text-align: right;
+ }
+ h1 { margin-top:0; }
