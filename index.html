@@ -11,14 +11,10 @@
 	<link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen" type="text/css">
 	<link href="style.css" rel="stylesheet" media="screen" type="text/css">
 
-  <style>
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-  </style>
 </head>
 <body onload="onLoadPage()" >
 	<div class="page">
-	<div class="navbar navbar-fixed-top">
+	<div class="navbar navbar-fixed-top headnav">
 		<div class="navbar-inner">
 			<a class="brand" href="#">StartupWeekend  <span name="m_name"> Locations</span> </a>
 			<a href="https://github.com/brunosan/swgoogleio/" target="_blank"><span class=" label label-important">
@@ -31,12 +27,14 @@
 					</div>
 				</li>
 			</ul>
+		<div class="grass"></div>
 		</div>
+	
 	</div>
 	
 	<div class="container  centred">
 		<div id='map'></div>
-		<div id='alert'><h1></h1></div>
+		<div id='alert' class=""><h1></h1></div>
 	</div>
 	</div>
 
