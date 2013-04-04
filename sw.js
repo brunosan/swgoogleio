@@ -31,9 +31,9 @@
 		          alert.innerHTML = '';
 		          // add a header and paragraph, and fill them with content
 		          // from the feature, which we've stored as the variable 'f'
-		          var h1 = alert.appendChild(document.createElement('h1'));
+		          var h2 = alert.appendChild(document.createElement('h2'));
 		          var p = alert.appendChild(document.createElement('p'));
-		          h1.innerHTML = "<a href='"+f.properties.website+"' target='_blank'>"+"Sartup Weekend "+f.properties.title+"</a>";
+		          h2.innerHTML = "<a href='"+f.properties.website+"' target='_blank'>"+"Sartup Weekend "+f.properties.title+"</a>";
 		          p.innerHTML = f.properties.description ;
 		
 				  // GA
