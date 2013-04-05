@@ -66,18 +66,16 @@ function showLoc(loc){
 			la=locs["features"][l]["geometry"]["coordinates"][0];
 			lo=locs["features"][l]["geometry"]["coordinates"][1];
 			var map = mapbox.map('map');
-			map.ease.location({ lat: la, lon: lo }).zoom(10).optimal();
-			return; //to avoid when more than one place is present
+			map.ease.location({ lat: la, lon: lo }).zoom(5).optimal();
+			return false; //to avoid multiple hits when more than one place is present
 		}
 	}
 }
 
 // Create map
-  mapbox.auto('map', 'mapbox.world-light', function(map, tiledata) {
+  mapbox.auto('map', 'brunosan.map-khe3ciiv', function(map, tiledata) {
 
     //Add GeoJSON markers
-
-
 	var markerLayer = mapbox.markers.layer().url('events.geojson');
 	var interaction = mapbox.markers.interaction(markerLayer);
 	map.addLayer(markerLayer);
@@ -110,7 +108,7 @@ function showLoc(loc){
 		          h3.innerHTML = ""+
 					"<p><a href='"+f.properties.website+"' target='_blank'>"+"Sartup Weekend "+f.properties.title+"</a></p>";
 		          p.innerHTML = "Date: "+f.properties.description +
-					"<p>Search Twitter: <a href=https://twitter.com/search?q=%23'"+f.properties.twitter.replace("#","")+
+					"<p>Twitter chatter: <a href=https://twitter.com/search?q=%23'"+f.properties.twitter.replace("#","")+
 					"' target='_blank'>"+"<img src='images/twitter-bird-light-bgs.png' width='40px'></a>";
 					;
 		
