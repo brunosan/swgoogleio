@@ -13,10 +13,11 @@
 
 </head>
 <body onload="readAllData()" >
+		
 	<div class="page">
 	<div class="navbar navbar-fixed-top headnav">
 		<div class="navbar-inner">
-			<a class="branding " href="#">StartupWeekend  <span name="m_name"> Locations</span> </a>
+			<a class="branding " href="https://apps.facebook.com/offerpop/Contest.psp?c=333732&u=50788&a=183778415022263&p=5510679098&v=Entry&id=v13269&rest=1">StartupWeekend  <span name="m_name"> Locations</span> </a>
 			<a href="https://github.com/brunosan/swgoogleio/" target="_blank"><span class=" label label-important">
 					In development
 					</span></a>
@@ -38,6 +39,27 @@
 			<img src="images/legend.png" width="300"  alt="Legend">
 		</div>
 	</div>
+	
+
+	<div id="sidevote"><p>
+	  <a target="_blank" class="btn btn-success" href="https://apps.facebook.com/offerpop/Contest.psp?c=333732&u=50788&a=183778415022263&p=5510679098&v=Entry&id=v13269&rest=1"> Vote for me! </a> 
+	</p>
+	</div>
+	</div>
+
+	<div class="modal hide fade" id="myModal">
+	  <div class="modal-header">
+	    <a class="close" data-dismiss="modal">×</a>
+	    <h3>Startup Weekend IO Challenge</h3>
+	  </div>
+	  <div class="modal-body">
+	    <p>I made this microsite for the <a href="https://apps.facebook.com/offerpop/Contest.psp?c=333732&u=50788&a=183778415022263&p=5510679098&v=Entry&id=v13269&rest=1">"Startup Weekend IO Challenge"</a>. Enjoy it, and if you like it, <b>please vote for me</b>. You can always access the vote page from the green button on the top.</p>
+	<p style="text-align:center"><a href="https://apps.facebook.com/offerpop/Contest.psp?c=333732&u=50788&a=183778415022263&p=5510679098&v=Entry&id=v13269&rest=1" target="_blank" ><img src="images/logo.png" width="30%"></a></p>
+	  </div>
+	  <div class="modal-footer">
+	    <a href="#" class="btn hideit">Close</a>
+	    <a href="https://apps.facebook.com/offerpop/Contest.psp?c=333732&u=50788&a=183778415022263&p=5510679098&v=Entry&id=v13269&rest=1" target="_blank" class="btn btn-primary">Here´s a vote, bro</a>
+	  </div>
 	</div>
 
 <script type="text/javascript" src="sw.js"></script>
@@ -46,6 +68,17 @@
 
 <script src="jquery-1.9.1/jquery.min.js" type="text/javascript" charset="utf-8"></script> 
 <script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(window).load(function(){
+        $('#myModal').modal('show');
+    });
+	$('.hideit').click(function(e){
+	    e.preventDefault();
+	    $('.modal').modal('hide');
+	    return false;
+	});
+</script>
+
 
 
 </body>
